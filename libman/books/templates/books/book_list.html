@@ -1,0 +1,52 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="header-bar">
+<h1> Hi {{request.user|title}}</h1>
+<a href="{% url 'logout' %}">Logout</a>
+</div>
+<a style='float: right;text-decoration: none; color: black;' href="/students/">View Students &#8594;</a>
+<h2 style="text-align: center;"> Book List </h2>
+
+
+
+<div class='search-add-wrapper'>
+	<form method="GET" style="margin-top:20px;display: flex;">
+		<input type="text" style='margin-right: 10px;' name="search-area" />
+		<input class='button' type = "submit" value="Search" >
+	</form>
+
+	<a class ='add-link' href="{% url 'book-create' %}">&#43;</a>
+</div>
+
+<p style='padding-left: 50px; font-weight: bold;'>Book Title </p>
+<div class = 'book-items-wrapper'>
+	{% for book in books %}
+		<div class='book-wrapper'>
+
+			<div class='book-title'>
+				{% if book.quantity > 0 %}
+				<div class="book-available-icon"></div>
+				{% else %}
+				<div class="book-unavailable-icon"></div>
+				{% endif %}
+				<a href = "{% url 'book-detail' book.id %}">{{book.title}}</a>
+			</div>
+			<div class="edit-and-delete">
+				<a class = 'edit-link' href="{% url 'book-update' book.id %}">&#9998;</a>
+				<a class = 'delete-link' href="{% url 'book-delete' book.id %}">&#215;</a>
+			</div>
+			
+		</div>
+		
+
+	{% empty %}
+	<h3> No books in catalogue </h3>
+
+	{% endfor %}
+
+</div>
+
+{% endblock %}
+
+	
+

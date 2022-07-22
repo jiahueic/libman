@@ -1,0 +1,15 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="header-bar">
+	<a href="{% url 'student-list' %}">&#8592; Back</a>
+</div>
+
+<div class="card-body">
+	<h1>Return Book</h1>
+	<form method="POST">{% csrf_token %}
+		<p>Are you sure you want to return this book? {{loan_book.book}}<p>
+		<input class='button' type="submit" name="Return"></input>
+	</form>
+</div>
+
+{% endblock %}

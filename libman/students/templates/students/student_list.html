@@ -1,0 +1,55 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class='header-bar'>
+	<a href="/">&#8592; Back to Library Catalogue</a>
+</div>
+
+<h1 style="text-align:center;">Student List</h1>
+
+<div class="search-add-wrapper">
+	<form method = 'GET' style="margin-top:20px;display: flex;">
+		<input type="text" style='margin-right: 10px;' name="search-student" >
+		<input class = 'button' type="submit" value="Search">
+	</form>
+	<a class ='add-link' href="{% url 'create-student' %}">&#43;</a>
+</div>
+<p><a style='text-decoration: None;font-weight: bold;' href="{% url 'create-book-loan' %}">&#43; New Book Loan</a></p>
+<span style="padding-left: 12px;">ID</span>
+<span style="padding-left:10px">Name</span>
+<div 'book-items-wrapper'>
+	{% for student in students %}
+	<div class='book-wrapper'>
+		<div class='book-title'>
+			<span style="padding-right: 10px">{{student.id}}</span>
+			<span>{{student.name}}</span>
+		</div>
+		<div class='edit-and-delete'>
+			<td><a class='edit-link' href="{% url 'update-student' student.id %}">&#9998;</a></td>
+			<td><a class='delete-link' href="{% url 'delete-student' student.id %}">&#215;</a></td>
+			<td><a href="/bookloan/{{student.id}}">Loan List</a></td>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+<!-- <table>
+	<a href="{% url 'create-book-loan' %}">New Book Loan</a>
+	<tr>
+		<th>Student ID</th>
+		<th>Student Name</th>	
+	</tr>
+	{% for student in students %}
+	<tr>
+		<td>{{student.id}}</td>
+		<td>{{student.name}}</td>
+		<div class='edit-and-delete'>
+			<td><a class='edit-link' href="">&#9998;</a></td>
+			<td><a class='delete-link' href="{% url 'delete-student' student.id %}">&#215;</a></td>
+			<td><a href="/bookloan/{{student.id}}">Loan List</a></td>
+		</div>
+		
+	</tr>
+	{% endfor %}
+</table> -->
+{% endblock %}
