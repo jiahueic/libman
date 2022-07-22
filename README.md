@@ -12,3 +12,9 @@
 11. These three files should have the same file heritance level as manage.py
 
 Technologies used: Django, SQLite, HTML, CSS <br />
+
+Note: 
+* To calculate the required return date, which is 14 days from the book issue date, override the save function in the BookLoan model
+* To only allow books that have a quantity of more than zero to display on the book loan form, use limit_choices_to field in models.ForeignKey
+
+
