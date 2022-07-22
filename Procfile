@@ -1,1 +1,1 @@
-web: gunicorn libman.wsgi -- log-file -
+web: gunicorn libman.wsgi --log-file -
