@@ -18,3 +18,12 @@ Note:
 * To only allow books that have a quantity of more than zero to display on the book loan form, use limit_choices_to field in models.ForeignKey
 
 
+## How to Start Django Server Locally
+1. cd libman/libman
+2. python3 -m venv venv
+3. source venv/bin/activate
+4. pip install -r requirements.txt
+5. python manage.py runserver
+
+
+
