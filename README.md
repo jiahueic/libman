@@ -18,12 +18,16 @@ Note:
 * To only allow books that have a quantity of more than zero to display on the book loan form, use limit_choices_to field in models.ForeignKey
 
 
-## How to Start Django Server Locally
+## How to Start Django Server Locally (after git clone)
 1. cd libman/libman
 2. python3 -m venv venv
 3. source venv/bin/activate
 4. pip install -r requirements.txt
 5. python manage.py runserver
+<br />
+
+Note:
+* Skip Step 2 if venv available in local libman folder
 
 
 
