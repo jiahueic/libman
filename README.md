@@ -27,7 +27,7 @@ Note:
 <br />
 
 Note:
-* Skip Step 2 if venv available in local libman folder
+* Skip Step 2 and Step 4 if venv available in local libman folder
 
 
 
